@@ -21,4 +21,9 @@ wget "$file_url" -O /tmp/motd
 mv /tmp/motd /etc/
 rm -rf /etc/update-motd.d/*
 apt-get install nano
+nameservers="
+            nameservers:
+              addresses: [1.1.1.1, 1.0.0.1]
+"
+echo "$nameservers" >> "/etc/netplan/50-cloud-init.yaml"
 rm "$0"
