@@ -21,4 +21,3 @@ wget "$file_url" -O /tmp/motd
 mv /tmp/motd /etc/
 rm -rf /etc/update-motd.d/*
 apt-get install nano
-reboot
