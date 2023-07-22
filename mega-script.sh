@@ -25,5 +25,6 @@ nameservers="
             nameservers:
               addresses: [1.1.1.1, 1.0.0.1]
 "
+sed -i '$s/.$//' "/etc/netplan/50-cloud-init.yaml"
 echo "$nameservers" >> "/etc/netplan/50-cloud-init.yaml"
 rm "$0"
