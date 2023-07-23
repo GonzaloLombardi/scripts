@@ -21,10 +21,14 @@ wget "$file_url" -O /tmp/motd
 mv /tmp/motd /etc/
 rm -rf /etc/update-motd.d/*
 apt-get install nano
-nameservers="
-            nameservers:
+nameservers="            nameservers:
               addresses: [1.1.1.1, 1.0.0.1]
 "
 sed -i '$s/.$//' "/etc/netplan/50-cloud-init.yaml"
 echo "$nameservers" >> "/etc/netplan/50-cloud-init.yaml"
+content="network: {config: disabled}"
+path="/etc/cloud/cloud.cfg.d/99-custom-networking.cfg"
+echo "$content" > "$path"
+netplan apply
+resolvectl status
 rm "$0"
