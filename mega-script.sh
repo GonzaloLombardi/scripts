@@ -32,3 +32,4 @@ echo "$content" > "$path"
 netplan apply
 resolvectl status
 rm "$0"
+reboot
