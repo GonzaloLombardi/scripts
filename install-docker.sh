@@ -16,3 +16,4 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docke
 echo "Linux post-installation steps for Docker Engine"
 usermod -aG docker $SUDO_USER
 echo "Script finished!"
+rm "$0"
